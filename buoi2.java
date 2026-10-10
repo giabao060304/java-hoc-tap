@@ -101,26 +101,26 @@ public class buoi2 {
         // Trung bình (từ 5), Yếu (dưới 5). Báo lỗi nếu điểm nằm ngoài 0–10.
         // Bài 2.4. Viết máy tính đơn giản: nhập hai số và một phép toán (+, -, *, /),
         // in kết quả. Báo lỗi khi chia cho 0. Dùng switch.
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap so x: ");
-        double x = sc.nextDouble();
+        // Scanner sc = new Scanner(System.in);
+        // System.out.print("Nhap so x: ");
+        // double x = sc.nextDouble();
 
-        System.out.print("Nhap so y: ");
-        double y = sc.nextDouble();
-        System.out.print("Nhập phép toán (+ - * /): ");
-        char op = sc.next().charAt(0);
-        switch (op) {
-            case '+' -> System.out.println(x + y);
-            case '-' -> System.out.println(x - y);
-            case '*' -> System.out.println(x * y);
-            case '/' -> {
-                if (y == 0)
-                    System.out.println("Không chia được cho 0");
-                else
-                    System.out.println(x / y);
-            }
-            default -> System.out.println("Phép toán không hợp lệ");
-        }
+        // System.out.print("Nhap so y: ");
+        // double y = sc.nextDouble();
+        // System.out.print("Nhập phép toán (+ - * /): ");
+        // char op = sc.next().charAt(0);
+        // switch (op) {
+        // case '+' -> System.out.println(x + y);
+        // case '-' -> System.out.println(x - y);
+        // case '*' -> System.out.println(x * y);
+        // case '/' -> {
+        // if (y == 0)
+        // System.out.println("Không chia được cho 0");
+        // else
+        // System.out.println(x / y);
+        // }
+        // default -> System.out.println("Phép toán không hợp lệ");
+        // }
         // Bài 2.5 (nâng cao). Nhập năm, cho biết có phải năm nhuận không (chia hết cho
         // 4 nhưng không chia hết cho 100, hoặc chia hết cho 400).
 

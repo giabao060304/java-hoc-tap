@@ -43,3 +43,10 @@ Hãy tưởng tượng bạn đang xây dựng chương trình quản lý độn
   import java.util.Set;
   hashCode() trả về một số nguyên đại diện cho đối tượng, thường được gọi là mã băm.
   //equals() dùng để kiểm tra hai đối tượng có được xem là bằng nhau hay không.
+  Lambda trong Java là gì?
+  Lambda giúp viết các đoạn xử lý ngắn gọn hơn, đặc biệt khi làm việc với Collections.
+  Map trong Java là gì?
+  Map dùng để lưu dữ liệu theo cặp Key – Value (khóa – giá trị).
+  Sắp xếp với Comparator
+  Trong Java, Comparator dùng để tự định nghĩa quy tắc sắp xếp các đối tượng. Ví dụ, sắp xếp sinh viên theo GPA tăng dần, GPA giảm dần, tên hoặc mã sinh viên.
+  ![lamqda](image-6.png)

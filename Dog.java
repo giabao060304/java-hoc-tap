@@ -1,0 +1,6 @@
+/**
+ * Dog
+ */
+public class Dog {
+
+}

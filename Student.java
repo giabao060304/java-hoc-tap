@@ -1,75 +1,99 @@
-public class Student {
-    // thuộc tính (field), để private để che giấu dữ liệu
+import java.util.Scanner;
+
+// Lớp đại diện cho một sinh viên (đóng gói dữ liệu)
+class Student {
     private String id;
     private String name;
     private double gpa;
 
-    // constructor: chạy khi tạo object bằng new
-    public Student(String id, String name, double gpa) {
-        this.id = id; // this.id là field, id là tham số
-        this.name = name;
-        this.gpa = gpa;
+    public Student() {
     }
 
-    // getter
+    public Student(String id, String name, double gpa) {
+        this.id = id;
+        this.name = name;
+        setGpa(gpa);
+    }
+
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public double getGpa() {
         return gpa;
     }
-    // public class Counter {
-    // private static int total = 0; // dùng chung cho mọi object
-    // private final int id;
 
-    // public Counter() {
-    // total++;
-    // this.id = total;
-    // }
+    // Kiểm tra hợp lệ ngay trong setter (thang điểm 4)
+    public void setGpa(double gpa) {
+        if (gpa < 0 || gpa > 4) {
+            throw new IllegalArgumentException("GPA phải nằm trong khoảng 0 - 4");
+        }
+        this.gpa = gpa;
+    }
 
-    // public static int getTotal() { // gọi bằng Counter.getTotal()
-    // return total;
-    // }
-    // }
-    // public: Constructor có thể được gọi từ những lớp khác nếu quyền truy cập cho
-    // phép.
-    // @Override là annotation báo cho Java biết rằng phương thức bên dưới được viết
-    // để ghi đè một phương thức có sẵn từ lớp cha.
-    // Đóng gói là việc che giấu dữ liệu bên trong đối tượng và chỉ cho phép bên
-    // ngoài truy cập hoặc thay đổi dữ liệu thông qua những phương thức được quy
-    // định.
-    // static dùng để khai báo thành phần thuộc về lớp (class), thay vì thuộc riêng
-    // từng đối tượng.
-    // setter có kiểm tra dữ liệu
-    // public void setGpa(double gpa) {
-    // if (gpa >= 0 && gpa <= 10) {
-    // this.gpa = gpa;
-    // }
-    // }
+    // Sinh viên tự nhập thông tin của chính mình
+    public void input(Scanner sc) {
+        System.out.print("Nhập mã sinh viên: ");
+        setId(sc.nextLine());
 
-    // // method hành vi
-    // public String rank() {
-    // if (gpa >= 8)
-    // return "Giỏi";
-    // if (gpa >= 6.5)
-    // return "Khá";
-    // if (gpa >= 5)
-    // return "Trung bình";
-    // return "Yếu";
-    // }
+        System.out.print("Nhập họ tên: ");
+        setName(sc.nextLine());
 
-    // // in object ra dạng dễ đọc
-    // @Override
-    // public String toString() {
-    // return "Student{id=" + id + ", name=" + name + ", gpa=" + gpa + "}";
-    // }
-    // Bài 6.1. Viết class Product gồm mã, tên, giá, số lượng; constructor,
-    // getter/setter (giá và số lượng không được âm), method getTotalValue() (giá ×
-    // số lượng) và toString(). Tạo 3 sản phẩm và in ra.
+        while (true) {
+            try {
+                System.out.print("Nhập GPA (0 - 4): ");
+                setGpa(Double.parseDouble(sc.nextLine()));
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("GPA phải là số, vui lòng nhập lại!");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage() + ", vui lòng nhập lại!");
+            }
+        }
+    }
 
+    @Override
+    public String toString() {
+        return "Mã SV: " + id + " | Họ tên: " + name + " | GPA: " + gpa;
+    }
+}
+
+// Lớp quản lý danh sách sinh viên
+class StudentManager {
+    private final Student[] students;
+
+    public StudentManager(int size) {
+        students = new Student[size];
+    }
+
+    public void inputAll(Scanner sc) {
+        for (int i = 0; i < students.length; i++) {
+            System.out.println("--- Sinh viên thứ " + (i + 1) + " ---");
+            students[i] = new Student();
+            students[i].input(sc);
+        }
+    }
+
+    // Trả về sinh viên có GPA cao nhất
+    public Student findTopStudent() {
+        Student top = students[0];
+        for (int i = 1; i < students.length; i++) {
+            if (students[i].getGpa() > top.getGpa()) {
+                top = students[i];
+            }
+        }
+        return top;
+    }
 }

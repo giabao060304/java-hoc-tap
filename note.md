@@ -34,3 +34,12 @@ Hãy tưởng tượng bạn đang xây dựng chương trình quản lý độn
   --Mình giải thích từ gốc nhé. Trong Java, phương thức tĩnh (static method) là phương thức thuộc về lớp (class) chứ không thuộc riêng một đối tượng nào của lớp đó.
   Interface là một hợp đồng: liệt kê những việc mà class phải làm được, không quan tâm làm thế nào. Class dùng implements để cam kết thực hiện hợp đồng đó, và một class có thể implement nhiều interface.
   ![alt text](image-3.png)
+  ![alt text](image-4.png)
+  ![alt text](image-5.png)
+  enum định nghĩa một tập hữu hạn các giá trị cố định, an toàn hơn dùng số hoặc chuỗi tùy ý.
+  import java.util.ArrayList;
+  import java.util.LinkedHashSet;
+  import java.util.Scanner;
+  import java.util.Set;
+  hashCode() trả về một số nguyên đại diện cho đối tượng, thường được gọi là mã băm.
+  //equals() dùng để kiểm tra hai đối tượng có được xem là bằng nhau hay không.

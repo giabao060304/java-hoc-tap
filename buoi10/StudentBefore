@@ -1,0 +1,16 @@
+package buoi10;
+
+public class StudentBefore {
+    private String id;
+    private String name;
+
+    public StudentBefore(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentBefore{id='" + id + "', name='" + name + "'}";
+    }
+}
